@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    width: 100%;
+    height: 100%;
+}
+
+#main{
+    width: 100vw;
+    height: 100vh;
+}
+/* navigation bar */
+.navbar{
+    position: fixed;
+    width: 100vw;
+    height: 150px;
+    background-color: #7AAACE;
+    
+}
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+    font:  Orbitron ;
+}
+.logoline{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+/* align the elements (home, Notes, resource,...etc) */
+.pages{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    margin-top: 15px; 
+}
+
