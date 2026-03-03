@@ -13,37 +13,281 @@ body {
     height: 100%;
 }
 
-#main{
-    width: 100vw;
-    height: 100vh;
+#main {
+    width: 100%;
+    /* Use min-height to ensure the container covers the whole screen */
+    min-height: 100vh;
+    color: #F7F8F0;
+    /* Pushes content down so it starts AFTER the fixed navbar */
+    padding-top: 180px;
+    display: flex;
+    flex-direction: column;
+    /* This centers the vision box horizontally */
+    align-items: center;
+    /* Removed justify-content: center to prevent vertical pulling */
 }
+
 /* navigation bar */
-.navbar{
+.navbar {
     position: fixed;
-    width: 100vw;
-    height: 150px;
+    /* Explicitly pin to the top and left */
+    top: 0;
+    left: 0;
+    width: 100%;
     background-color: #7AAACE;
-    
+    z-index: 1000;
+    /* Added padding for a cleaner look */
+    padding-bottom: 15px;
 }
-.logo{
+
+.logo {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 25px;
-    font:  Orbitron ;
+    font: Orbitron;
 }
-.logoline{
+
+.logoline {
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
 }
+
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+
+}
+
+@media (max-width: 786px) {
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-toggle {
+        margin-top: 10px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .pages {
+        display: none;
+        flex-direction: column;
+        background-color: #7AAACE;
+        margin-top: 10px;
+    }
+
+    .pages.active {
+        display: flex;
+    }
+}
+
 /* align the elements (home, Notes, resource,...etc) */
-.pages{
+.pages {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 35px;
-    margin-top: 15px; 
+    margin-top: 15px;
 }
 
+/* adjust the pages attributes  */
+.pages a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    padding: 8px 15px;
+    /* creates space inside box */
+    border-radius: 6px;
+    transition: 0.3s ease;
+}
+
+/* transition for the fake underline */
+.pages a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background-color: #355872;
+    transition: width 0.3s ease;
+}
+
+.pages a:hover {
+    background-color: #7db3d9;
+    color: #355872;
+}
+
+/* this will act after the hover */
+.pages a:hover::after {
+    width: 100%;
+}
+
+/* vision div */
+.vision {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 90%;
+    max-width: 800px;
+    /* Standard margin to keep it away from the navbar and bottom */
+    background-color: #09637E;
+    /* white box */
+    color: #ffffff;
+    margin: 40px auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.vision p {
+    font-family: serif;
+    font-size: larger;
+}
+
+/* what-inside div */
+.what-inside {
+    height: 650px;
+    width: 90%;
+    max-width: 800px;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: #022936;
+    color: white;
+
+}
+
+.what-inside h2 {
+    margin-top: 25px;
+    margin-left: 35px;
+}
+
+.notes-resource {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.notes {
+    background-color: #048194;
+    height: 150px;
+    width: 330px;
+    border: 1px solid rgb(0, 123, 127);
+    border-radius: 20px;
+}
+
+.notes h3 {
+    margin-top: 7px;
+    margin-left: 7px;
+}
+
+.notes p {
+    font-size: small;
+    margin-top: 8px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.resource {
+    background-color: #048194;
+    height: 150px;
+    width: 330px;
+    border: 1px solid rgb(0, 123, 127);
+    border-radius: 20px;
+    margin-left: 30px;
+}
+
+.resource h3 {
+    margin-top: 7px;
+    margin-left: 7px;
+}
+
+.resource p {
+    font-size: small;
+    margin-top: 8px;
+    margin-left: 8px;
+}
+
+.planner-tasks{
+     margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.planner{
+    background-color: #048194;
+    height: 150px;
+    width: 330px;
+    border: 1px solid rgb(0, 123, 127);
+    border-radius: 20px;
+    
+}
+
+.planner h3{
+     margin-top: 7px;
+    margin-left: 7px;
+}
+
+.planner p{
+    font-size: small;
+    margin-top: 8px;
+    margin-left: 8px;
+}
+.tasks{
+  background-color: #048194;
+    height: 150px;
+    width: 330px;
+    border: 1px solid rgb(0, 123, 127);
+    border-radius: 20px;
+    margin-left: 30px;
+}
+.tasks h3{
+     margin-top: 7px;
+    margin-left: 7px;
+}
+.tasks p{
+    font-size: small;
+    margin-top: 8px;
+    margin-left: 8px;
+}
+.focus-timer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.focus{
+     background-color: #048194;
+    height: 150px;
+    width: 330px;
+    border: 1px solid rgb(0, 123, 127);
+    border-radius: 20px;
+    margin-top: 30px;
+}
+
+.focus h3{
+    margin-top: 7px;
+    margin-left: 7px;
+}
+
+.focus p{
+     font-size: small;
+    margin-top: 8px;
+    margin-left: 8px;
+}
